@@ -67,8 +67,12 @@ class SudokuGenerator:
 	
 	Return: boolean
     '''
+
     def valid_in_col(self, col, num):
-        pass
+        for i in range(9):
+            if self.board[i][col] == num:
+                return False
+        return True
 
     '''
 	Determines if num is contained in the 3x3 box specified on the board
@@ -184,8 +188,16 @@ class SudokuGenerator:
 	Parameters: None
 	Return: None
     '''
+
     def remove_cells(self):
-        pass
+        num_removed = 0
+        while num_removed < self.removed_cells:
+            row = random.randint(0, 8)
+            col = random.randint(0, 8)
+            if self.board[row][col] != 0:
+                self.board[row][col] = 0
+                num_removed += 1
+        return None
 
 '''
 DO NOT CHANGE
